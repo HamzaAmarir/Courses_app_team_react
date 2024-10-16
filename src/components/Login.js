@@ -6,24 +6,11 @@ const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
-  const navigate = useNavigate();
-  
-  const { status, error } = useSelector((state) => state.auth);
+  const error = useSelector((state) => state.auth.error);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(login({ username, password }))
-      .unwrap()
-      .then((user) => {
-        if (user.role === 'admin') {
-          navigate('/dashboard'); // Redirection vers le tableau de bord si l'utilisateur est admin
-        } else if (user.role === 'user') {
-          navigate('/courses'); // Redirection vers les cours si l'utilisateur est un simple user
-        }
-      })
-      .catch((err) => {
-        console.error("Login failed: ", err);
-      });
+    dispatch(login({ username, password }));
   };
 
   return (

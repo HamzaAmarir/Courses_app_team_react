@@ -16,20 +16,34 @@ const CourseForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input 
-        type="text" 
-        value={title} 
-        onChange={(e) => setTitle(e.target.value)} 
-        placeholder="Title" 
-      />
-      <textarea 
-        value={description} 
-        onChange={(e) => setDescription(e.target.value)} 
-        placeholder="Description" 
-      />
-      <button type="submit">Add Course</button>
-    </form>
+    <div className="container mt-5">
+      <h2 className="text-center">Add Course</h2>
+      <form onSubmit={handleSubmit} className="mt-4">
+        <div className="form-group">
+          <label htmlFor="title">Course Title:</label>
+          <input 
+            type="text" 
+            className="form-control" 
+            id="title" 
+            value={title} 
+            onChange={(e) => setTitle(e.target.value)} 
+            required 
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="description">Course Description:</label>
+          <textarea 
+            className="form-control" 
+            id="description" 
+            rows="3" 
+            value={description} 
+            onChange={(e) => setDescription(e.target.value)} 
+            required 
+          ></textarea>
+        </div>
+        <button type="submit" className="btn btn-success">Add Course</button>
+      </form>
+    </div>
   );
 };
 
