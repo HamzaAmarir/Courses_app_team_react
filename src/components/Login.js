@@ -1,16 +1,30 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../redux/authSlice';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
-  const error = useSelector((state) => state.auth.error);
+  const navigate = useNavigate();
+  
+  const { status, error } = useSelector((state) => state.auth);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(login({ username, password }));
+    dispatch(login({ username, password }))
+      .unwrap()
+      .then((user) => {
+        if (user.role === 'admin') {
+          navigate('/add-course');
+        } else if (user.role === 'user') {
+          navigate('/courses');
+        }
+      })
+      .catch((err) => {
+        console.error("Login failed: ", err);
+      });
   };
 
   return (

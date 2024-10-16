@@ -2,7 +2,9 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 export const fetchCourses = createAsyncThunk('course/fetchCourses', async () => {
   const response = await fetch('http://localhost:3000/courses');
-  return response.json();
+  const data = await response.json();
+  return data;
+  
 });
 
 export const addCourse = createAsyncThunk('course/addCourse', async (course) => {
