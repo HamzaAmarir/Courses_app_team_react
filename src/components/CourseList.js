@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchCourses } from '../redux/courseSlice';
+import { deleteCourse, fetchCourses } from '../redux/courseSlice';
 
 const CourseList = () => {
   const courses = useSelector((state) => state.course.courses);
@@ -20,7 +20,7 @@ const CourseList = () => {
               <h5>{course.title}</h5>
               <p>{course.description}</p>
             </div>
-            <button className="btn btn-danger btn-sm">Delete</button> 
+            <button className="btn btn-danger btn-sm" onClick={()=>dispatch(deleteCourse(course.id))}>Delete</button> 
           </li>
         ))}
       </ul>

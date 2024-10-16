@@ -16,6 +16,13 @@ export const addCourse = createAsyncThunk('course/addCourse', async (course) => 
   return response.json();
 });
 
+export const deleteCourse = createAsyncThunk('course/deleteCourse', async (courseId) => {
+  await fetch(`http://localhost:3000/courses/${courseId}`, {
+    method: 'DELETE',
+  });
+  return courseId;
+});
+
 // export const addComment = createAsyncThunk('course/addComment', async ({ courseId, comment }) => {
 //   const response = await fetch(`http://localhost:3000/courses${courseId}/comments`, {
 //     method: 'POST',
@@ -41,6 +48,9 @@ const courseSlice = createSlice({
       .addCase(fetchCourses.rejected, (state, action) => {
         state.status = 'failed';
         state.error = action.error.message;
+      })
+      .addCase(deleteCourse.fulfilled, (state, action) => {
+        state.courses = state.courses.filter((course) => course.id !== action.payload);
       })
       .addCase(addCourse.fulfilled, (state, action) => {
         state.courses.push(action.payload);
