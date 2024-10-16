@@ -1,0 +1,69 @@
+{
+  "courses": [
+    {
+      "id": "1",
+      "title": "Introduction to JavaScript",
+      "description": "Learn the fundamentals of JavaScript, the programming language of the web.",
+      "poster": "https://imgs.search.brave.com/EtfkEyI9xaHHeyiSOUlS3y-zzFi_-rwMHJU4L_dhB_Q/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9oYWNr/ZXJub29uLmltZ2l4/Lm5ldC9pbWFnZXMv/Y2t2cC05LWp2aGkt/MDAzLXktMC1icy02/LWN3cS00OS1qZ2Eu/anBnP2F1dG89Zm9y/bWF0JmZpdD1tYXgm/dz04Mjg"
+    },
+    {
+      "id": "2",
+      "title": "Advanced React",
+      "description": "Dive deep into React and learn advanced techniques for building applications.",
+      "poster": "https://example.com/images/react-advanced.jpg"
+    },
+    {
+      "id": "3",
+      "title": "Node.js for Beginners",
+      "description": "Understand the basics of Node.js and build scalable network applications.",
+      "poster": "https://example.com/images/node-beginners.jpg"
+    },
+    {
+      "id": "4",
+      "title": "Python for Data Science",
+      "description": "Master Python programming to analyze data and perform machine learning tasks.",
+      "poster": "https://example.com/images/python-data-science.jpg"
+    },
+    {
+      "id": "5",
+      "title": "CSS Flexbox & Grid",
+      "description": "Learn modern CSS layout techniques with Flexbox and Grid.",
+      "poster": "https://example.com/images/css-layout.jpg"
+    },
+    {
+      "id": "6",
+      "title": "Django Web Development",
+      "description": "Build dynamic web applications using Python's Django framework.",
+      "poster": "https://example.com/images/django-web-dev.jpg"
+    },
+    {
+      "id": "7",
+      "title": "Machine Learning with Python",
+      "description": "Explore machine learning algorithms and applications using Python.",
+      "poster": "https://example.com/images/ml-python.jpg"
+    },
+    {
+      "id": "8",
+      "title": "Introduction to Docker",
+      "description": "Learn containerization with Docker to streamline your development workflow.",
+      "poster": "https://example.com/images/docker-intro.jpg"
+    },
+    {
+      "id": "9",
+      "title": "Fullstack Web Development",
+      "description": "Master both frontend and backend technologies to become a fullstack web developer.",
+      "poster": "https://example.com/images/fullstack-dev.jpg"
+    },
+    {
+      "id": "10",
+      "title": "Kubernetes Fundamentals",
+      "description": "Learn the basics of Kubernetes for orchestrating containerized applications.",
+      "poster": "https://example.com/images/kubernetes-fundamentals.jpg"
+    },
+    {
+      "id": "7a98",
+      "title": "php mastery",
+      "description": "hhhhhh"
+    }
+  ]
+}
