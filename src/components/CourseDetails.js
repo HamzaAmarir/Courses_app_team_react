@@ -18,7 +18,6 @@ const CourseDetails = () => {
       <p>{course.description}</p>
       <h3>Comments</h3>
       <ul className="list-group">
-        {/* Assume comments are available; adapt based on your data structure */}
         {course.comments && course.comments.map((comment, index) => (
           <li key={index} className="list-group-item">{comment}</li>
         ))}

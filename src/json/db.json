@@ -2,7 +2,7 @@
   "courses": [
     {
       "id": "1",
-      "title": "Introduction to JavaScript",
+      "title": "Introduction to master JavaScript",
       "description": "Learn the fundamentals of JavaScript, the programming language of the web.",
       "poster": "https://imgs.search.brave.com/EtfkEyI9xaHHeyiSOUlS3y-zzFi_-rwMHJU4L_dhB_Q/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9oYWNr/ZXJub29uLmltZ2l4/Lm5ldC9pbWFnZXMv/Y2t2cC05LWp2aGkt/MDAzLXktMC1icy02/LWN3cS00OS1qZ2Eu/anBnP2F1dG89Zm9y/bWF0JmZpdD1tYXgm/dz04Mjg"
     },

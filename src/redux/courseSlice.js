@@ -23,6 +23,17 @@ export const deleteCourse = createAsyncThunk('course/deleteCourse', async (cours
   return courseId;
 });
 
+
+export const editCourse = createAsyncThunk('course/editCourse', async ({ courseId, updatedCourse }) => {
+  const response = await fetch(`http://localhost:3000/courses/${courseId}`, {
+    method: 'PUT',
+    body: JSON.stringify(updatedCourse),
+    headers: { 'Content-Type': 'application/json' },
+  });
+  return response.json();
+});
+
+
 // export const addComment = createAsyncThunk('course/addComment', async ({ courseId, comment }) => {
 //   const response = await fetch(`http://localhost:3000/courses${courseId}/comments`, {
 //     method: 'POST',
@@ -53,8 +64,14 @@ const courseSlice = createSlice({
         state.courses = state.courses.filter((course) => course.id !== action.payload);
       })
       .addCase(addCourse.fulfilled, (state, action) => {
-        state.courses.push(action.payload);
+        state.courses.push(action.payload)
       })
+      .addCase(editCourse.fulfilled, (state, action) => {
+        const index = state.courses.findIndex((course) => course.id === action.payload.id);
+        if (index !== -1) {
+          state.courses[index] = action.payload;
+        }
+      });
       // .addCase(addComment.fulfilled, (state, action) => {
       //   const { courseId, comment } = action.payload;
       //   if (!state.comments[courseId]) {

@@ -1,14 +1,24 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteCourse, fetchCourses } from '../redux/courseSlice';
-
+import EditCourseForm from './EditCourseForm'; 
 const CourseList = () => {
   const courses = useSelector((state) => state.course.courses);
   const dispatch = useDispatch();
+  
+  const [selectedCourseId, setSelectedCourseId] = useState(null);
 
-  useEffect(()=>{
-    dispatch(fetchCourses())
-  },[dispatch])
+  useEffect(() => {
+    dispatch(fetchCourses());
+  }, [dispatch]);
+
+  const handleEditClick = (courseId) => {
+    setSelectedCourseId(courseId); 
+  };
+
+  const handleCloseForm = () => {
+    setSelectedCourseId(null); 
+  };
 
   return (
     <div className="container mt-5">
@@ -20,10 +30,30 @@ const CourseList = () => {
               <h5>{course.title}</h5>
               <p>{course.description}</p>
             </div>
-            <button className="btn btn-danger btn-sm" onClick={()=>dispatch(deleteCourse(course.id))}>Delete</button> 
+            <div>
+              <button
+                className="btn btn-info mx-1"
+                onClick={() => handleEditClick(course.id)}
+              >
+                Edit
+              </button>
+              <button
+                className="btn btn-danger"
+                onClick={() => dispatch(deleteCourse(course.id))} 
+              >
+                Delete
+              </button>
+            </div>
           </li>
         ))}
       </ul>
+
+      {selectedCourseId && (
+        <EditCourseForm
+          courseId={selectedCourseId} 
+          onClose={handleCloseForm}  
+        />
+      )}
     </div>
   );
 };
